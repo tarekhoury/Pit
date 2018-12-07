@@ -56,17 +56,16 @@ public class Point extends View implements Comparable<Point> {
 
             case MotionEvent.ACTION_MOVE:
 
-                int x = ConversionUtils.limitToRange(
+                pointX = ConversionUtils.limitToRange(
                         (int) (getPointX() + event.getX() - RADIUS),
                         parent.getWidth() / 2 * -1 + RADIUS,
                         parent.getWidth() / 2 - RADIUS);
 
-                int y = ConversionUtils.limitToRange(
+                pointY = ConversionUtils.limitToRange(
                         (int) (getPointY() - event.getY() + RADIUS),
                         parent.getHeight() / 2 * -1 + RADIUS,
                         parent.getHeight() / 2 - RADIUS);
 
-                setXY(x, y);
                 requestLayout();
                 invalidate();
                 break;
