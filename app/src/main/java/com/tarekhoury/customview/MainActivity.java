@@ -55,13 +55,13 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
                 int x = ConversionUtils.limitToRange(
                         (int) (point.getPointX() + event.getX() - Point.RADIUS),
-                        (pit.getWidth() / 2) * -1 + Point.POINT_SIZE,
-                        pit.getWidth() / 2) - Point.RADIUS;
+                        pit.getWidth() / 2 * -1,
+                        pit.getWidth() / 2);
 
                 int y = ConversionUtils.limitToRange(
                         (int) (point.getPointY() - event.getY() + Point.RADIUS),
-                        (pit.getHeight() / 2) * -1 + Point.POINT_SIZE,
-                        pit.getHeight() / 2) - Point.RADIUS;
+                        pit.getHeight() / 2 * -1,
+                        pit.getHeight() / 2);
 
                 point.setXY(x, y);
                 point.requestLayout();
