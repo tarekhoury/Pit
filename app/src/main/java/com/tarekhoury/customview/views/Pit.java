@@ -45,9 +45,7 @@ public class Pit extends ViewGroup {
     @Override
     public void addView(View child) {
         // Keep all child views in a sorted list so we can easily draw them
-        if (child instanceof Point) {
-            pointList.add((Point) child);
-        }
+        pointList.add((Point) child);
         Collections.sort(pointList);
         super.addView(child);
     }
