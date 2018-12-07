@@ -48,7 +48,7 @@ public class Pit extends ViewGroup {
     public void addView(View child) {
         pointList.add((Point) child);
         // Keep all child views in a sorted list so we can easily draw them
-        Collections.sort(pointList);
+        sortPoints();
         super.addView(child);
     }
 
@@ -100,5 +100,9 @@ public class Pit extends ViewGroup {
                     ConversionUtils.transformY(point2.getPointY(), canvasHeight) + Point.RADIUS,
                     pointLinePaint);
         }
+    }
+
+    public void sortPoints() {
+        Collections.sort(pointList);
     }
 }

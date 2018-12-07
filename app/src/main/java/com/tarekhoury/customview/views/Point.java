@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.tarekhoury.customview.utility.ConversionUtils;
 
@@ -51,7 +50,7 @@ public class Point extends View implements Comparable<Point> {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        ViewGroup parent = (ViewGroup) getParent();
+        Pit parent = (Pit) getParent();
 
         switch (event.getAction()) {
 
@@ -70,6 +69,10 @@ public class Point extends View implements Comparable<Point> {
                 setXY(x, y);
                 requestLayout();
                 invalidate();
+                break;
+            case MotionEvent.ACTION_UP:
+                parent.sortPoints();
+                parent.invalidate();
                 break;
         }
 
