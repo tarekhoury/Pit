@@ -58,13 +58,13 @@ public class Point extends View implements Comparable<Point> {
 
                 int x = ConversionUtils.limitToRange(
                         (int) (getPointX() + event.getX() - RADIUS),
-                        parent.getWidth() / 2 * -1,
-                        parent.getWidth() / 2);
+                        parent.getWidth() / 2 * -1 + RADIUS,
+                        parent.getWidth() / 2 - RADIUS);
 
                 int y = ConversionUtils.limitToRange(
                         (int) (getPointY() - event.getY() + RADIUS),
-                        parent.getHeight() / 2 * -1,
-                        parent.getHeight() / 2);
+                        parent.getHeight() / 2 * -1 + RADIUS,
+                        parent.getHeight() / 2 - RADIUS);
 
                 setXY(x, y);
                 requestLayout();
