@@ -11,4 +11,8 @@ public class ConversionUtils {
     public static int dpToPx(int dp) {
         return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
+
+    public static int limitToRange(int value, int min, int max) {
+        return Math.min(Math.max(value, min), max);
+    }
 }

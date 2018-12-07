@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
+import com.tarekhoury.customview.utility.ConversionUtils;
 import com.tarekhoury.customview.views.Pit;
 import com.tarekhoury.customview.views.Point;
 
@@ -51,10 +52,18 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         switch (event.getAction()) {
 
             case MotionEvent.ACTION_MOVE:
-                point.setXY(
-                        (int) (point.getPointX() + event.getX()) - Point.RADIUS,
-                        (int) (point.getPointY() - event.getY()) + Point.RADIUS);
 
+                int x = ConversionUtils.limitToRange(
+                        (int) (point.getPointX() + event.getX() - Point.RADIUS),
+                        (pit.getWidth() / 2) * -1 + Point.POINT_SIZE,
+                        pit.getWidth() / 2) - Point.RADIUS;
+
+                int y = ConversionUtils.limitToRange(
+                        (int) (point.getPointY() - event.getY() + Point.RADIUS),
+                        (pit.getHeight() / 2) * -1 + Point.POINT_SIZE,
+                        pit.getHeight() / 2) - Point.RADIUS;
+
+                point.setXY(x, y);
                 point.requestLayout();
                 point.invalidate();
                 break;
