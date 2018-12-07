@@ -1,12 +1,17 @@
 package com.tarekhoury.customview.views;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+
+import com.tarekhoury.customview.utility.ConversionUtils;
 
 public class Point extends View implements Comparable<Point> {
 
@@ -42,6 +47,35 @@ public class Point extends View implements Comparable<Point> {
         return pointY;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        ViewGroup parent = (ViewGroup) getParent();
+
+        switch (event.getAction()) {
+
+            case MotionEvent.ACTION_MOVE:
+
+                int x = ConversionUtils.limitToRange(
+                        (int) (getPointX() + event.getX() - RADIUS),
+                        parent.getWidth() / 2 * -1,
+                        parent.getWidth() / 2);
+
+                int y = ConversionUtils.limitToRange(
+                        (int) (getPointY() - event.getY() + RADIUS),
+                        parent.getHeight() / 2 * -1,
+                        parent.getHeight() / 2);
+
+                setXY(x, y);
+                requestLayout();
+                invalidate();
+                break;
+        }
+
+        return true;
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
@@ -54,13 +88,6 @@ public class Point extends View implements Comparable<Point> {
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawCircle(RADIUS, RADIUS, RADIUS, pointPaint);
-    }
-
-    @Override
-    public boolean performClick() {
-        requestLayout();
-        invalidate();
-        return super.performClick();
     }
 
     @Override
