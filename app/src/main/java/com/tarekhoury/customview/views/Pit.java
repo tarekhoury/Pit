@@ -8,6 +8,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.tarekhoury.customview.utility.ConversionUtils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -67,8 +69,8 @@ public class Pit extends ViewGroup {
         canvasHeight = getHeight();
 
         for (Point point : pointList) {
-            int pointX = transformX(point.getPointX());
-            int pointY = transformY(point.getPointY());
+            int pointX = ConversionUtils.transformX(point.getPointX(), canvasWidth);
+            int pointY = ConversionUtils.transformY(point.getPointY(), canvasHeight);
 
             point.layout(pointX, pointY, point.getMeasuredWidth() + pointX, point.getMeasuredHeight() + pointY);
         }
@@ -92,25 +94,11 @@ public class Pit extends ViewGroup {
             }
 
             canvas.drawLine(
-                    transformX(point1.getPointX()) + Point.RADIUS,
-                    transformY(point1.getPointY()) + Point.RADIUS,
-                    transformX(point2.getPointX()) + Point.RADIUS,
-                    transformY(point2.getPointY()) + Point.RADIUS,
+                    ConversionUtils.transformX(point1.getPointX(), canvasWidth) + Point.RADIUS,
+                    ConversionUtils.transformY(point1.getPointY(), canvasHeight) + Point.RADIUS,
+                    ConversionUtils.transformX(point2.getPointX(), canvasWidth) + Point.RADIUS,
+                    ConversionUtils.transformY(point2.getPointY(), canvasHeight) + Point.RADIUS,
                     pointLinePaint);
         }
-    }
-
-    /**
-     * Convert from point X values to a screen position X value
-     */
-    private int transformX(int x) {
-        return x + (canvasWidth / 2) - Point.RADIUS;
-    }
-
-    /**
-     * Convert from point Y values to a screen position Y value
-     */
-    private int transformY(int y) {
-        return (y * -1) + (canvasHeight / 2) - Point.RADIUS;
     }
 }
