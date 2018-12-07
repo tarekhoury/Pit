@@ -1,4 +1,4 @@
-package com.tarekhoury.customview;
+package com.tarekhoury.pit;
 
 import org.junit.Test;
 

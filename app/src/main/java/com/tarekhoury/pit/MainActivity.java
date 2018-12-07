@@ -1,11 +1,11 @@
-package com.tarekhoury.customview;
+package com.tarekhoury.pit;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
-import com.tarekhoury.customview.views.Pit;
-import com.tarekhoury.customview.views.Point;
+import com.tarekhoury.pit.views.Pit;
+import com.tarekhoury.pit.views.Point;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.tarekhoury.customview.views;
+package com.tarekhoury.pit.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.tarekhoury.customview.utility.ConversionUtils;
+import com.tarekhoury.pit.utility.ConversionUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

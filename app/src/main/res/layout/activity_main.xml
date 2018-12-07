@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.tarekhoury.customview.views.Pit
+    <com.tarekhoury.pit.views.Pit
         android:id="@+id/pit"
         android:layout_width="match_parent"
         android:layout_height="300dp"

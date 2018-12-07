@@ -1,4 +1,4 @@
-package com.tarekhoury.customview.views;
+package com.tarekhoury.pit.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.tarekhoury.customview.utility.ConversionUtils;
+import com.tarekhoury.pit.utility.ConversionUtils;
 
 public class Point extends View implements Comparable<Point> {
 

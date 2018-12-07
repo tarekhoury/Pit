@@ -1,8 +1,8 @@
-package com.tarekhoury.customview.utility;
+package com.tarekhoury.pit.utility;
 
 import android.content.res.Resources;
 
-import com.tarekhoury.customview.views.Point;
+import com.tarekhoury.pit.views.Point;
 
 public class ConversionUtils {
 

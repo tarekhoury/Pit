@@ -1,4 +1,4 @@
-package com.tarekhoury.customview;
+package com.tarekhoury.pit;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
