@@ -41,7 +41,7 @@ public class Pit extends ViewGroup {
 
         pointLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         pointLinePaint.setColor(Color.RED);
-        pointLinePaint.setStrokeWidth(2);
+        pointLinePaint.setStrokeWidth(4);
     }
 
     @Override

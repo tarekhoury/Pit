@@ -16,7 +16,7 @@ import com.tarekhoury.customview.utility.ConversionUtils;
 public class Point extends View implements Comparable<Point> {
 
     // Fixed point size (can be dynamic)
-    public final static int POINT_SIZE = 24;
+    public final static int POINT_SIZE = 30;
     public final static int RADIUS = POINT_SIZE / 2;
 
     private final Paint pointPaint;
